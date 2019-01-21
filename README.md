@@ -1,4 +1,4 @@
-# TITLE
+# More consistent cards generation
 ## Rationale
 If you are a power user, you may want to be able to use complex
 template. The rule «a card is generated if and only if the question
@@ -10,6 +10,16 @@ for a real explanation
 So, this add-on change anki, in order to ensure that cards are
 generated if only if they should be generated !
 
+
+### Positive side effect
+You may also use this add-on to check your templates. If, when you use
+"empty cards", some cards are deleted only if this add-on is
+installed, it may emphasize the fact that the template of this card
+was incorrectly written.
+
+You may want to use the add-on [Field name in card deletion
+message](https://ankiweb.net/shared/info/25425599) in order to know
+more precisely which cards are deleted.
 
 ## Warning
 It should sadly be noted that this add-on is kind of incompatible with
@@ -43,4 +53,4 @@ Copyright   | Arthur Milchior <arthur@milchior.fr>
 Based on    | Anki code by Damien Elmes <anki@ichi2.net>
 License     | GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
 Source in   | https://github.com/Arthur-Milchior/anki-
-Addon number| [NNNNNNNNNNNN](https://ankiweb.net/shared/info/NNNNNNNNNNNN)
+Addon number| [1713990897](https://ankiweb.net/shared/info/1713990897)
