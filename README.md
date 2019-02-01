@@ -1,56 +1,42 @@
-# More consistent cards generation
-## Rationale
-If you are a power user, you may want to be able to use complex
-template. The rule «a card is generated if and only if the question
-side show the content of a field» is a really nice rule. But that's
-far from being what anki actually does. See [generation
-ules](https://github.com/Arthur-Milchior/anki/blob/master/documentation/templates_generation_rules.md)
-for a real explanation
+# Deprecated
+This add-on is deprecated, since it was incorporated in anki's default
+code in
+(2.1.6)[https://apps.ankiweb.net/docs/changes.html#changes-in-2.1.6]
+by this (pull
+request)[https://github.com/dae/anki/commit/8e0077335a6f1fc03b8045b41fe916bd9dab912d].
 
-So, this add-on change anki, in order to ensure that cards are
-generated if only if they should be generated !
+The remaining of the README consider the previous documentation.
 
+# New cards are see according to their position, and not their creation time
+## Bug corrected
+This add-ons corrects the following bug:
 
-### Positive side effect
-You may also use this add-on to check your templates. If, when you use
-"empty cards", some cards are deleted only if this add-on is
-installed, it may emphasize the fact that the template of this card
-was incorrectly written.
+* Create a note N in an empty deck D of type basic (reverse), with
+only some back, no front. Only card 2 will be generated.
+* Edit the note, add a front. Card 1 will be generated.
+* In the main window, try to learn deck D. In anki, currently, you'll
+  see Card 2 first. According to the manual (and to my common sens),
+  it should be Card 1 first.
 
-You may want to use the add-on [Field name in card deletion
-message](https://ankiweb.net/shared/info/25425599) in order to know
-more precisely which cards are deleted.
+## Effect
+This add-ons ensures that new cards of a same note are seen according
+to their order, and not to their creation date.
 
-## Warning
-It should sadly be noted that this add-on is kind of incompatible with
-any version of anki without this addon. It means that some cards may
-be generated here, and be seen as empty on ankidroid/ankiweb/ios.
+Works with both schedulers. Work only where the add-on is installed,
+thus won't work on ankidroid, IoS, ankiweb, etc... (I don't know
+whether this bug exists there or not).
 
-
-## Internal
-It changes the following methods:
-* ```Template.render_unescaped```, it now returns a pair, whose second
-  element is True if and only if the field was found and
-  showAField. (Currently, the field may be a special field. TODO: remove this)
-* ```Template.render_tags```: similarly, it returns a pair, which is
-  true if only if some field was found and showAField.
-* ```Template.render```: same modification
-* ```_Collection._renderQA```: The dictionnary returned contains an
-  entry "showAField" which has the meaning of the previous change
-* ```Card.isEmpty```: it now returns the correct answer !
-* ```ModelManager.availOrds```: Same thing
-
-## Version 2.0
-None
-## TODO
-Do not consider cards with only special fields as successful cards.
+## Commit
+This has been submitted as pull-request
+(#262)[https://github.com/dae/anki/pull/262] to Anki's code. Thus it
+may hopefully become useless.
 
 ## Links, licence and credits
 
 Key         |Value
 ------------|-------------------------------------------------------------------
-Copyright   | Arthur Milchior <arthur@milchior.fr>
-Based on    | Anki code by Damien Elmes <anki@ichi2.net>
-License     | GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
-Source in   | https://github.com/Arthur-Milchior/anki-
-Addon number| [1713990897](https://ankiweb.net/shared/info/1713990897)
+Copyright   |Arthur Milchior <arthur@milchior.fr>
+Based on    |Anki code by Damien Elmes <anki@ichi2.net>
+License     |GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
+Source in   | https://github.com/Arthur-Milchior/anki-correct-card-generation
+Addon number| [1666697962](https://ankiweb.net/shared/info/1666697962)

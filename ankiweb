@@ -1,0 +1,3 @@
+Anki's synchronization require that your time is synchronized with ankiweb's time. If, for some reason, your computer is late or ahead compared to anki's server, this add-on allows you to synchronize.
+
+For more information, please go to https://github.com/Arthur-Milchior/anki-local-time-change
