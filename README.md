@@ -29,16 +29,16 @@ be generated here, and be seen as empty on ankidroid/ankiweb/ios.
 
 ## Internal
 It changes the following methods:
-* ```Template.render_unescaped```, it now returns a pair, whose second
+* `Template.render_unescaped`, it now returns a pair, whose second
   element is True if and only if the field was found and
   showAField. (Currently, the field may be a special field. TODO: remove this)
-* ```Template.render_tags```: similarly, it returns a pair, which is
+* `Template.render_tags`: similarly, it returns a pair, which is
   true if only if some field was found and showAField.
-* ```Template.render```: same modification
-* ```_Collection._renderQA```: The dictionnary returned contains an
+* `Template.render`: same modification
+* `_Collection._renderQA`: The dictionnary returned contains an
   entry "showAField" which has the meaning of the previous change
-* ```Card.isEmpty```: it now returns the correct answer !
-* ```ModelManager.availOrds```: Same thing
+* `Card.isEmpty`: it now returns the correct answer !
+* `ModelManager.availOrds`: Same thing
 
 ## Version 2.0
 None
