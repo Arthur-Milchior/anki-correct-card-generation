@@ -49,8 +49,8 @@ Do not consider cards with only special fields as successful cards.
 
 Key         |Value
 ------------|-------------------------------------------------------------------
-Copyright   | Arthur Milchior <arthur@milchior.fr>
-Based on    | Anki code by Damien Elmes <anki@ichi2.net>
-License     | GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
-Source in   | https://github.com/Arthur-Milchior/anki-
-Addon number| [1713990897](https://ankiweb.net/shared/info/1713990897)
+Copyright   |Arthur Milchior <arthur@milchior.fr>
+Based on    |Anki code by Damien Elmes <anki@ichi2.net>
+License     |GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
+Source in   | https://github.com/Arthur-Milchior/anki-correct-card-generation
+Addon number| [1666697962](https://ankiweb.net/shared/info/1666697962)
