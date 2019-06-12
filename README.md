@@ -53,5 +53,5 @@ Copyright   |Arthur Milchior <arthur@milchior.fr>
 Based on    |Anki code by Damien Elmes <anki@ichi2.net>
 License     |GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
 Source in   | https://github.com/Arthur-Milchior/anki-correct-card-generation
-Addon number| [1666697962](https://ankiweb.net/shared/info/1666697962)
+Addon number| [1713990897](https://ankiweb.net/shared/info/1713990897)
 Support me on| [![Ko-fi](https://ko-fi.com/img/Kofi_Logo_Blue.svg)](Ko-fi.com/arthurmilchior) or [![Patreon](http://www.milchior.fr/patreon.png)](https://www.patreon.com/bePatron?u=146206)
