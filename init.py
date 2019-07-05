@@ -118,7 +118,7 @@ def _renderQA(self, data, qfmt=None, afmt=None):
     """Returns hash of id, question, answer.
 
     Keyword arguments:
-    data -- [cid, nid, mid, did, ord, tags, flds] (see db
+    data -- [cid, nid, mid, did, ord, tags, flds, cardFlags] (see db
     documentation for more information about those values)
     flds is a list of fields, not a dict.
     This corresponds to the information you can obtain in templates, using {{Tags}}, {{Type}}, etc..
@@ -130,7 +130,7 @@ def _renderQA(self, data, qfmt=None, afmt=None):
     TODO comment better
 
     """
-    cid, nid, mid, did, ord, tags, flds = data
+    cid, nid, mid, did, ord, tags, flds, cardFlags = data
     flist = splitFields(flds)#the list of fields
     fields = {} #
     #name -> ord for each field, tags
@@ -140,7 +140,7 @@ def _renderQA(self, data, qfmt=None, afmt=None):
     # cn: 1 for n being the ord+1
     # FrontSide :
     model = self.models.get(mid)
-    assert model is not None
+    assert model is not None #new (and fieldMap and items were not variables, but directly used
     fieldMap = self.models.fieldMap(model)
     items = fieldMap.items()
     for (name, (idx, conf)) in list(items):#conf is not used
@@ -149,6 +149,7 @@ def _renderQA(self, data, qfmt=None, afmt=None):
     fields['Type'] = model['name']
     fields['Deck'] = self.decks.name(did)
     fields['Subdeck'] = fields['Deck'].split('::')[-1]
+    fields['CardFlag'] = self._flagNameFromCardFlags(cardFlags)
     if model['type'] == MODEL_STD:#Note that model['type'] has not the same meaning as fields['Type']
         template = model['tmpls'][ord]
     else:#for cloze deletions
@@ -161,7 +162,7 @@ def _renderQA(self, data, qfmt=None, afmt=None):
     qfmt = qfmt or template['qfmt']
     afmt = afmt or template['afmt']
     for (type, format) in (("q", qfmt), ("a", afmt)):
-        if type == "q":
+        if type == "q":#if/else is in the loop in order for d['q'] to be defined below
             format = re.sub("{{(?!type:)(.*?)cloze:", r"{{\1cq-%d:" % (ord+1), format)
             #Replace {{'foo'cloze: by {{'foo'cq-(ord+1), where 'foo' does not begins with "type:"
             format = format.replace("<%cloze:", "<%%cq:%d:" % (

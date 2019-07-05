@@ -1,4 +1,4 @@
-# More consistent cards generation
+# TITLE
 ## Rationale
 If you are a power user, you may want to be able to use complex
 template. The rule «a card is generated if and only if the question
@@ -11,16 +11,6 @@ So, this add-on change anki, in order to ensure that cards are
 generated if only if they should be generated !
 
 
-### Positive side effect
-You may also use this add-on to check your templates. If, when you use
-"empty cards", some cards are deleted only if this add-on is
-installed, it may emphasize the fact that the template of this card
-was incorrectly written.
-
-You may want to use the add-on [Field name in card deletion
-message](https://ankiweb.net/shared/info/25425599) in order to know
-more precisely which cards are deleted.
-
 ## Warning
 It should sadly be noted that this add-on is kind of incompatible with
 any version of anki without this addon. It means that some cards may
@@ -29,16 +19,16 @@ be generated here, and be seen as empty on ankidroid/ankiweb/ios.
 
 ## Internal
 It changes the following methods:
-* `Template.render_unescaped`, it now returns a pair, whose second
+* ```Template.render_unescaped```, it now returns a pair, whose second
   element is True if and only if the field was found and
   showAField. (Currently, the field may be a special field. TODO: remove this)
-* `Template.render_tags`: similarly, it returns a pair, which is
+* ```Template.render_tags```: similarly, it returns a pair, which is
   true if only if some field was found and showAField.
-* `Template.render`: same modification
-* `_Collection._renderQA`: The dictionnary returned contains an
+* ```Template.render```: same modification
+* ```_Collection._renderQA```: The dictionnary returned contains an
   entry "showAField" which has the meaning of the previous change
-* `Card.isEmpty`: it now returns the correct answer !
-* `ModelManager.availOrds`: Same thing
+* ```Card.isEmpty```: it now returns the correct answer !
+* ```ModelManager.availOrds```: Same thing
 
 ## Version 2.0
 None
@@ -49,9 +39,8 @@ Do not consider cards with only special fields as successful cards.
 
 Key         |Value
 ------------|-------------------------------------------------------------------
-Copyright   |Arthur Milchior <arthur@milchior.fr>
-Based on    |Anki code by Damien Elmes <anki@ichi2.net>
-License     |GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
+Copyright   | Arthur Milchior <arthur@milchior.fr>
+Based on    | Anki code by Damien Elmes <anki@ichi2.net>
+License     | GNU AGPL, version 3 or later; http://www.gnu.org/licenses/agpl.html
 Source in   | https://github.com/Arthur-Milchior/anki-correct-card-generation
 Addon number| [1713990897](https://ankiweb.net/shared/info/1713990897)
-Support me on| [![Ko-fi](https://ko-fi.com/img/Kofi_Logo_Blue.svg)](Ko-fi.com/arthurmilchior) or [![Patreon](http://www.milchior.fr/patreon.png)](https://www.patreon.com/bePatron?u=146206)
