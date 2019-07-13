@@ -1,4 +1,4 @@
-# TITLE
+# More consistent cards generation
 ## Rationale
 If you are a power user, you may want to be able to use complex
 template. The rule «a card is generated if and only if the question
