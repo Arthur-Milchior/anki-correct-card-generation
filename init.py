@@ -66,10 +66,12 @@ Template.render_unescaped = render_unescaped
 
 @debugFun
 def render_tags(self, template, context):
-    """Renders all the tags in a template for a context. Normally
-    {{# and {{^ are removed"""
+    """A pair with:
+    * All the tags in a template for a context. Normally
+    {{# and {{^ are removed,
+    * whether a field is shown"""
     repCount = 0
-    showAField = False
+    showAField = False #NEW
     while 1:
         if repCount > 100:
             print("too many replacements")
@@ -115,7 +117,7 @@ Template.render = render
 
 @debugFun
 def _renderQA(self, data, qfmt=None, afmt=None):
-    """Returns hash of id, question, answer.
+    """Returns dict with id, question, answer, and whether a field is shown in question.
 
     Keyword arguments:
     data -- [cid, nid, mid, did, ord, tags, flds, cardFlags] (see db
@@ -130,7 +132,15 @@ def _renderQA(self, data, qfmt=None, afmt=None):
     TODO comment better
 
     """
-    cid, nid, mid, did, ord, tags, flds, cardFlags = data
+    cid = data[0]
+    nid = data[1]
+    mid = data[2]
+    did = data[3]
+    ord = data[4]
+    tags = data[5]
+    flds = data[6]
+    if len(data)>=8: #this is a recent addition, some older version of anki does not have data[7]
+        cardFlags = data[7]
     flist = splitFields(flds)#the list of fields
     fields = {} #
     #name -> ord for each field, tags
@@ -149,7 +159,8 @@ def _renderQA(self, data, qfmt=None, afmt=None):
     fields['Type'] = model['name']
     fields['Deck'] = self.decks.name(did)
     fields['Subdeck'] = fields['Deck'].split('::')[-1]
-    fields['CardFlag'] = self._flagNameFromCardFlags(cardFlags)
+    if len(data)>=8:
+        fields['CardFlag'] = self._flagNameFromCardFlags(cardFlags)
     if model['type'] == MODEL_STD:#Note that model['type'] has not the same meaning as fields['Type']
         template = model['tmpls'][ord]
     else:#for cloze deletions
