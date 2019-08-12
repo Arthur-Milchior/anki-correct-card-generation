@@ -12,10 +12,15 @@ generated if only if they should be generated !
 
 
 ## Warning
+### Computer only
 It should sadly be noted that this add-on is kind of incompatible with
 any version of anki without this addon. It means that some cards may
 be generated here, and be seen as empty on ankidroid/ankiweb/ios.
 
+### Cloze deletion
+This add-on only deals with non-cloze notes. In the case of cloze
+note, this add-on use the anki's standard algorithm to decide which
+cards remain. This may change in the future
 
 ## Internal
 It changes the following methods:
@@ -33,7 +38,8 @@ It changes the following methods:
 ## Version 2.0
 None
 ## TODO
-Do not consider cards with only special fields as successful cards.
+* Do not consider cards with only special fields as successful cards.
+* Also correct cloze deletion generation
 
 ## Links, licence and credits
 

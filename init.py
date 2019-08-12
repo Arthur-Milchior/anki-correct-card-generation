@@ -214,10 +214,15 @@ Card.isEmpty = isEmpty
 #TOTALLY NEW METHOD
 @debugFun
 def availOrds(self, m, flds):
-    """
+    """Given a joined field string, return ordinal of card type which
+        should be generated.
+
     self -- model manager
     m -- a model object
+
     """
+    if m['type'] == MODEL_CLOZE:
+        return self._availClozeOrds(m, flds)
     available = []
     flist = splitFields(flds)
     fields = {} #
