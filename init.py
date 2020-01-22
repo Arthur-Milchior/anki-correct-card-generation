@@ -1,14 +1,17 @@
-from anki.template.template import Template, modifiers, modifier, get_or_attr
-from anki.collection import _Collection
-from anki.cards import Card
-from anki.models import ModelManager
-from anki.utils import splitFields
-import anki
-from anki.consts import *
 import re
-from anki.hooks import  runFilter
+
+import anki
+from anki.cards import Card
+from anki.collection import _Collection
+from anki.consts import *
+from anki.hooks import runFilter
+from anki.models import ModelManager
 from anki.sound import stripSounds
+from anki.template.template import Template, get_or_attr, modifier, modifiers
+from anki.utils import splitFields
+
 from .debug import debugFun
+
 
 @modifier(None)
 @debugFun

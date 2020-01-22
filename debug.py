@@ -1,5 +1,6 @@
-from inspect import stack
 import re
+from inspect import stack
+
 mayDebug = False
 
 indentation = 0
