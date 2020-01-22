@@ -100,7 +100,7 @@ def render_tags(self, template, context):
             ########## End new part
                 template = template.replace(tag, replacement)
         except (SyntaxError, KeyError):
-            return "{{invalid template}}"
+            return "{{invalid template}}", False
     return template, showAField
 
 Template.render_tags =render_tags
@@ -155,7 +155,7 @@ def _renderQA(self, data, qfmt=None, afmt=None):
     model = self.models.get(mid)
     assert model is not None #new (and fieldMap and items were not variables, but directly used
     fieldMap = self.models.fieldMap(model)
-    items = fieldMap.items()
+    items = list(fieldMap.items())
     for (name, (idx, conf)) in list(items):#conf is not used
         fields[name] = flist[idx]
     fields['Tags'] = tags.strip()
