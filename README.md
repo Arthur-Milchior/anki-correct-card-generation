@@ -4,7 +4,7 @@ If you are a power user, you may want to be able to use complex
 template. The rule «a card is generated if and only if the question
 side show the content of a field» is a really nice rule. But that's
 far from being what anki actually does. See [generation
-ules](https://github.com/Arthur-Milchior/anki/blob/master/documentation/templates_generation_rules.md)
+ules](https://github.com/Arthur-Milchior/anki/blob/commented/documentation/templates_generation_rules.md)
 for a real explanation
 
 So, this add-on change anki, in order to ensure that cards are
