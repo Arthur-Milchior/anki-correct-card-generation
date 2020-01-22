@@ -37,6 +37,15 @@ It changes the following methods:
 
 ## Version 2.0
 None
+
+## Anki > 2.1.19
+Anki changed a lot in version 2.1.20. I am currently unable to
+understand those change, as they are in rust, and I don't know
+it. Furthermore, rules for card generation change, so it's possible
+that this add-on becomes useless. Anyway, until I know more about
+2.1.20, this add-on won't be available with latest anki. As this
+add-on as only peen downloaded 63 times, I believe that's not a real trouble.
+
 ## TODO
 * Do not consider cards with only special fields as successful cards.
 * Also correct cloze deletion generation
